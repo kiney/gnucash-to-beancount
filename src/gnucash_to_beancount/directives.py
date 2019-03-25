@@ -86,6 +86,14 @@ def sanitize_name(name):
     name = name.replace('+', 'plus')
     name = name.replace('?', 'q')
     name = name.replace('¢', 'cent')
+    
+    # Beancount does not allow Umlauts
+    name = name.replace('ä', 'ae')
+    name = name.replace('Ä', 'Ae')
+    name = name.replace('ö', 'oe')
+    name = name.replace('Ö', 'Oe')
+    name = name.replace('ü', 'ue')
+    name = name.replace('Ü', 'Ue')
 
     name = name.replace("'", '')  # Joe's -> Joes
     name = name.replace('(', '')
